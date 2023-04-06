@@ -8,7 +8,14 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  transform: all 0.3s;
+  transition: all 0.3s;
+
+  @supports (-webkit-backdrop-filter: blur(10x)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black.3);
+  }
 
   &__content {
     @include absCenter;
